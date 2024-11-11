@@ -1,0 +1,10 @@
+version: "2.0"
+services:
+  gpu-benchmark:
+    image: alex6nbai/gpu_benchmark:latest
+    expose:
+      - port: 9999
+deployment:
+  gpu-benchmark:
+    lagrange:
+      count: 1
