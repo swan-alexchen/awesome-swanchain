@@ -3,7 +3,7 @@ services:
   gpu-benchmark:
     image: alex6nbai/gpu_benchmark:latest
     expose:
-      - port: 9999
+      - port: 5000
 deployment:
   gpu-benchmark:
     lagrange:
