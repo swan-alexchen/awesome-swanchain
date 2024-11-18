@@ -5,8 +5,8 @@ services:
     image: swanchain254/aleo_mainnet_f2pool:3.0.12
     env:
       - MINER_URL=stratum+ssl://aleo-asia.f2pool.com:4420
-      - ACCOUNTNAME=rootabc
-      - WORKNAME=work-001
+      - ACCOUNTNAME=alexnbai
+      - WORKNAME=sampling.0001
     expose:
       - port: 5000
         as: 5000
