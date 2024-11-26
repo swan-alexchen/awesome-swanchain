@@ -1,7 +1,7 @@
 version: "2.0"
 services:
   gpu-benchmark:
-    image: alex6nbai/gpu_benchmark:1126-2
+    image: alex6nbai/gpu_benchmark:1126-3
     expose:
       - port: 5000
 deployment:
