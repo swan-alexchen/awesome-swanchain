@@ -4,6 +4,9 @@ services:
     image: alex6nbai/gpu_benchmark:1126-3
     expose:
       - port: 5000
+    env:
+      - NCCL_P2P_DISABLE=1
+      - NCCL_SHM_DISABLE=1
 deployment:
   gpu-benchmark:
     lagrange:
