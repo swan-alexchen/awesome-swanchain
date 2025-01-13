@@ -1,0 +1,13 @@
+version: "2.0"
+services:
+  stable-diffusion:
+    image: alex6nbai/abc202501:20250113
+    expose:
+      - port: 8000
+    env:
+      - NCCL_P2P_DISABLE=1
+      - NCCL_SHM_DISABLE=1
+deployment:
+  stable-diffusion:
+    lagrange:
+      count: 1
