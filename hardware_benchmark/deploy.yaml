@@ -1,6 +1,6 @@
 version: "2.0"
 services:
-  stable-diffusion:
+  fastapi:
     image: alex6nbai/abc202501:20250113
     expose:
       - port: 8000
@@ -8,6 +8,6 @@ services:
       - NCCL_P2P_DISABLE=1
       - NCCL_SHM_DISABLE=1
 deployment:
-  stable-diffusion:
+  fastapi:
     lagrange:
       count: 1
