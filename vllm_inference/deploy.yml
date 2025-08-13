@@ -1,0 +1,28 @@
+version: "2.0"
+
+services:
+  my_vllm_container: # Maps to --name
+    image: vllm/vllm-openai:latest # Maps to the image name
+    command: ["python", "-m", "vllm.entrypoints.api_server"] # Default command for vLLM or what's needed to start. (often not needed if image has ENTRYPOINT)
+    args:
+      - --model
+      - Sao10K/L3-8B-Stheno-v3.2 # Maps to the command arguments
+      - --port
+      - "8000" # VLLM often takes `--port` as an arg, good to explicitly set for clarity
+      - --host
+      - "0.0.0.0" # Bind to all interfaces for container
+    env:
+      - HUGGING_FACE_HUB_TOKEN=<secret> # Maps to --env
+    expose:
+      - port: 8000 # Container port exposed
+    # No direct mapping for --runtime nvidia / --gpus all as it's provider-specific
+    # No direct mapping for -v ~/.cache/huggingface... as host volumes aren't supported.
+    # The VLLM container will download the model to its internal filesystem (likely in /root/.cache/huggingface)
+    # or wherever it's configured to. This data *might* be ephemeral across restarts unless the provider handles persistence.
+
+deployment:
+  my_vllm_container:
+    lagrange:
+      count: 1 # Deploy one instance of the service
+      # Potentially add placement profiles here for GPU if LDL supported it explicitly
+      # For now, it's assumed the provider selection implies GPU capability for VLLM workloads.
