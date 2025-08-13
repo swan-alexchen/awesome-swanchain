@@ -11,8 +11,6 @@ services:
       - "8000" # VLLM often takes `--port` as an arg, good to explicitly set for clarity
       - --host
       - "0.0.0.0" # Bind to all interfaces for container
-    env:
-      - HUGGING_FACE_HUB_TOKEN=fake_one # Maps to --env
     expose:
       - port: 8000 # Container port exposed
     # No direct mapping for --runtime nvidia / --gpus all as it's provider-specific
