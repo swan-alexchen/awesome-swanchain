@@ -2,7 +2,7 @@ version: "2.0"
 
 services:
   vllmcontainer: # Maps to --name
-    image: alex6nbai/nb_vllm:latest # Maps to the image name
+    image: alex6nbai/nb_vllm:20250814-1  # Maps to the image name
     # command: ["python3", "-m", "vllm.entrypoints.openai.api_server"] # Default command for vLLM or what's needed to start. (often not needed if image has ENTRYPOINT)
     args:
       - --model
