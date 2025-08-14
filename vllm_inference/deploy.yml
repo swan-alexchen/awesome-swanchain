@@ -3,14 +3,8 @@ version: "2.0"
 services:
   vllmcontainer: # Maps to --name
     image: alex6nbai/nb_vllm:20250814-2  # Maps to the image name
-    command: ["python3", "-m", "vllm.entrypoints.openai.api_server"] # Default command for vLLM or what's needed to start. (often not needed if image has ENTRYPOINT)
-    args:
-      - --model
-      - Sao10K/L3-8B-Stheno-v3.2 # Maps to the command arguments
-      - --port
-      - "8000" # VLLM often takes `--port` as an arg, good to explicitly set for clarity
-      - --host
-      - "0.0.0.0" # Bind to all interfaces for container
+    env:
+      - MODEL_NAME=Sao10K/L3-8B-Stheno-v3.2
     expose:
       - port: 80 # Container port exposed
         as: 80  # to the nginx port, not vllm
