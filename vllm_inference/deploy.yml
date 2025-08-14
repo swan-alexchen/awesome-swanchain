@@ -13,16 +13,11 @@ services:
       - "0.0.0.0" # Bind to all interfaces for container
     expose:
       - port: 8000 # Container port exposed
+        as: 80  # to the nginx port, not vllm
     # No direct mapping for --runtime nvidia / --gpus all as it's provider-specific
     # No direct mapping for -v ~/.cache/huggingface... as host volumes aren't supported.
     # The VLLM container will download the model to its internal filesystem (likely in /root/.cache/huggingface)
     # or wherever it's configured to. This data *might* be ephemeral across restarts unless the provider handles persistence.
-  vllmnginx:
-    image: alex6nbai/nb_vllm_nginx:latest
-    expose:
-      - port: 8000
-        as: 80
-    
 
 deployment:
   vllmcontainer:
@@ -30,6 +25,3 @@ deployment:
       count: 1 # Deploy one instance of the service
       # Potentially add placement profiles here for GPU if LDL supported it explicitly
       # For now, it's assumed the provider selection implies GPU capability for VLLM workloads.
-  vllmnginx:
-    langrange:
-      count: 1
