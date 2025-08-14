@@ -12,7 +12,7 @@ services:
       - --host
       - "0.0.0.0" # Bind to all interfaces for container
     expose:
-      - port: 8000 # Container port exposed
+      - port: 80 # Container port exposed
         as: 80  # to the nginx port, not vllm
     # No direct mapping for --runtime nvidia / --gpus all as it's provider-specific
     # No direct mapping for -v ~/.cache/huggingface... as host volumes aren't supported.
