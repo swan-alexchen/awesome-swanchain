@@ -2,7 +2,7 @@ version: "2.0"
 
 services:
   vllmcontainer: # Maps to --name
-    image: alex6nbai/nb_vllm:20250814-2  # Maps to the image name
+    image: alex6nbai/nb_vllm:20250814-3
     env:
       - MODEL_NAME=Sao10K/L3-8B-Stheno-v3.2
     expose:
