@@ -4,7 +4,7 @@ services:
   vllmcontainer: 
     image: alex6nbai/nb_vllm:20250814-5
     env:
-      - MODEL_NAME=unsloth/gpt-oss-20b-GGUF
+      - MODEL_NAME=unsloth/Qwen3-Coder-30B-A3B-Instruct
 
     expose:
       - port: 80
