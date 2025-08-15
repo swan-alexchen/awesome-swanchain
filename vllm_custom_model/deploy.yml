@@ -1,0 +1,15 @@
+version: "2.0"
+
+services:
+  vllmcontainer: 
+    image: alex6nbai/nb_vllm:20250814-5
+    env:
+      - MODEL_NAME=openai/gpt-oss-20b
+    expose:
+      - port: 80
+        as: 80 
+
+deployment:
+  vllmcontainer:
+    lagrange:
+      count: 1 
