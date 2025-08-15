@@ -4,7 +4,8 @@ services:
   vllmcontainer: 
     image: alex6nbai/nb_vllm:20250814-5
     env:
-      - MODEL_NAME=openai/gpt-oss-20b
+      - MODEL_NAME=unsloth/gpt-oss-20b-GGUF
+
     expose:
       - port: 80
         as: 80 
