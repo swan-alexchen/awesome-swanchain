@@ -1,0 +1,21 @@
+version: "2.0"
+
+services:
+  vllmcontainer: # Maps to --name
+    image: alex6nbai/nb_vllm:20250814-5
+    env:
+      - MODEL_NAME=Qwen/Qwen3-Coder-480B-A35B-Instruct
+    expose:
+      - port: 80 # Container port exposed
+        as: 80  # to the nginx port, not vllm
+    # No direct mapping for --runtime nvidia / --gpus all as it's provider-specific
+    # No direct mapping for -v ~/.cache/huggingface... as host volumes aren't supported.
+    # The VLLM container will download the model to its internal filesystem (likely in /root/.cache/huggingface)
+    # or wherever it's configured to. This data *might* be ephemeral across restarts unless the provider handles persistence.
+
+deployment:
+  vllmcontainer:
+    lagrange:
+      count: 1 # Deploy one instance of the service
+      # Potentially add placement profiles here for GPU if LDL supported it explicitly
+      # For now, it's assumed the provider selection implies GPU capability for VLLM workloads.
