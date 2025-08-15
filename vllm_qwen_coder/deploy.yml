@@ -4,7 +4,7 @@ services:
   vllmcontainer: # Maps to --name
     image: alex6nbai/nb_vllm:20250814-5
     env:
-      - MODEL_NAME=Qwen/Qwen3-Coder-480B-A35B-Instruct
+      - MODEL_NAME=Qwen/Qwen3-Coder-30B-A3B-Instruct
     expose:
       - port: 80 # Container port exposed
         as: 80  # to the nginx port, not vllm
