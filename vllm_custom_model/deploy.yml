@@ -4,7 +4,7 @@ services:
   vllmcontainer: 
     image: alex6nbai/nb_vllm:20250814-6
     env:
-      - MODEL_NAME=Valdemardi/DeepSeek-R1-Distill-Llama-70B-AWQ
+      - MODEL_NAME=Sao10K/L3-8B-Stheno-v3.2
 
     expose:
       - port: 80
