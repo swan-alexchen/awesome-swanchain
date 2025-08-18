@@ -5,6 +5,7 @@ services:
     image: alex6nbai/nb_vllm:vllm-latest-20250818-1
     env:
       - MODEL_NAME=Sao10K/L3-8B-Stheno-v3.2
+      - NCCL_DEBUG=INFO
 
     expose:
       - port: 80
