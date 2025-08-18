@@ -4,7 +4,7 @@ services:
   vllmcontainer: 
     image: alex6nbai/nb_vllm:20250814-6
     env:
-      - MODEL_NAME=unsloth/Qwen3-Coder-30B-A3B-Instruct-1M-GGUF
+      - MODEL_NAME=Valdemardi/DeepSeek-R1-Distill-Llama-70B-AWQ
 
     expose:
       - port: 80
