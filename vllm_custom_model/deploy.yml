@@ -4,7 +4,7 @@ services:
   vllmcontainer: 
     image: alex6nbai/nb_vllm:vllm-latest-20250819-2
     env:
-      - MODEL_NAME=huihui-ai/Huihui-gpt-oss-20b-BF16-abliterated
+      - MODEL_NAME=microsoft/phi-4
       - NCCL_DEBUG=INFO
 
     expose:
