@@ -2,7 +2,7 @@ version: "2.0"
 
 services:
   vllmcontainer: 
-    image: alex6nbai/nb_vllm:vllm-latest-20250819-1
+    image: alex6nbai/nb_vllm:vllm-latest-20250819-2
     env:
       - MODEL_NAME=Qwen/Qwen3-Coder-30B-A3B-Instruct
       - NCCL_DEBUG=INFO
