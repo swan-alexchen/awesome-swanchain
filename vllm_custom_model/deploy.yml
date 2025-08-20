@@ -4,7 +4,7 @@ services:
   vllmcontainer: 
     image: alex6nbai/nb_vllm:vllm-latest-20250819-2
     env:
-      - MODEL_NAME=google/gemma-3-27b-it
+      - MODEL_NAME=google/gemma-3-12b-it
       - NCCL_DEBUG=INFO
 
     expose:
