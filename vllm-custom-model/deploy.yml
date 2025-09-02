@@ -9,8 +9,8 @@ services:
       - username=root
       - MODEL_NAME=Qwen/Qwen3-4B
     expose:
-        - port: 8000
-        - port: 22
+      - port: 80
+      - port: 22
 
 deployment:
   vm:
