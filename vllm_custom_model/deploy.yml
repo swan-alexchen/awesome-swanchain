@@ -1,21 +1,18 @@
 version: "2.0"
 
+type: node-port
 services:
-  vllmcontainer: 
+  vm:
     image: alex6nbai/nb_vllm:vllm-latest-20250902-2
     env:
+      - sshkey=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDZFarrQJ38edLKPS83BzoALPHy3xtZKF5/947lDDCBIMRRrA+NiTmwmITGBmhacDoYWWhpzuRrHzNjFRGfCrTeX4NrZ9/lXYmS5rdYjjzPexh2gtMFLMYeGRwJDsAs+Wbj/qfzZzdw5PMUsoy9cSx5pRQKIjTJ7yUoNDeJ1HkacpImZk7pSeDZhWJnweCjABBkJ3N7dnVOUtHL5YWxLr8PVC8HS1QEg6qY5k41hcvdd9fNb2fewgaKnIHOBR10mX7c9s8+wihY6iw2rHf7hMC2AZZqpYzk9v0pc0AXuIBCqoXmRWC1GA1i/BOF+o1mwNz/RYtznziK276ZyjrC30d/UUSUcZ4FcotNf6pvhmCFXZMKUHGN0B/5UB91CmUJqBRlZUiVbFc1xQjf9xxTkWaJvr5Rnan0qyreOnT+aH+ZH1sZ/+P6U318G2l+T9bddWu1NfzoDSZ4TDXGpPPtQ1KHqlahkas5Z/I77d4Si56kIw108kklbx1DxxMuwEr0hv0= alexchen@YONGs-MBP
+      - username=root
       - MODEL_NAME=google/gemma-3-12b-it
-      - NCCL_DEBUG=INFO
-
     expose:
-      - port: 80
-        as: 80 
-      - port: 3200
-        as: 3200
-      - port: 3300
-        as: 3300
+        - port: 22
+        - port: 8000
 
 deployment:
-  vllmcontainer:
+  vm:
     lagrange:
       count: 1 
