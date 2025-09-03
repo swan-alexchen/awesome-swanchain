@@ -3,7 +3,16 @@ version: "2.0"
 type: node-port
 services:
   vm:
-    image: alex6nbai/ubuntu:22.04
+    image: alex6nbai/nb_vllm:20250903-1
+    command:
+      - python3
+      - -m
+      - vllm.entrypoints.openai.api_server
+    args:
+      - --host
+      - 0.0.0.0
+      - --port
+      - 9099
     env:
       - sshkey=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDZFarrQJ38edLKPS83BzoALPHy3xtZKF5/947lDDCBIMRRrA+NiTmwmITGBmhacDoYWWhpzuRrHzNjFRGfCrTeX4NrZ9/lXYmS5rdYjjzPexh2gtMFLMYeGRwJDsAs+Wbj/qfzZzdw5PMUsoy9cSx5pRQKIjTJ7yUoNDeJ1HkacpImZk7pSeDZhWJnweCjABBkJ3N7dnVOUtHL5YWxLr8PVC8HS1QEg6qY5k41hcvdd9fNb2fewgaKnIHOBR10mX7c9s8+wihY6iw2rHf7hMC2AZZqpYzk9v0pc0AXuIBCqoXmRWC1GA1i/BOF+o1mwNz/RYtznziK276ZyjrC30d/UUSUcZ4FcotNf6pvhmCFXZMKUHGN0B/5UB91CmUJqBRlZUiVbFc1xQjf9xxTkWaJvr5Rnan0qyreOnT+aH+ZH1sZ/+P6U318G2l+T9bddWu1NfzoDSZ4TDXGpPPtQ1KHqlahkas5Z/I77d4Si56kIw108kklbx1DxxMuwEr0hv0= alexchen@YONGs-MBP
       - username=alex
