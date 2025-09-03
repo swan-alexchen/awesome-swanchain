@@ -5,9 +5,7 @@ services:
   vm:
     image: alex6nbai/nb_vllm:20250903-1
     command:
-      - python3
-      - -m
-      - vllm.entrypoints.openai.api_server
+      - /usr/local/bin/vllm_openai_api_server.sh
     args:
       - --host
       - 0.0.0.0
