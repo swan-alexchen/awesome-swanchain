@@ -18,6 +18,8 @@ services:
       - username=alex
     expose:
       - port: 80
+        as: 80
+        proto: http
       - port: 22
 
 deployment:
