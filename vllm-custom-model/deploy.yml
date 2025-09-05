@@ -3,7 +3,7 @@ version: "2.0"
 type: node-port
 services:
   vm:
-    image: alex6nbai/ubuntu-22.04:cuda-12_01
+    image: alex6nbai/ubuntu-22.04:cuda-12_02
     # command:
     #   - /usr/local/bin/entrypoint.sh
     # args:
